@@ -21,12 +21,12 @@ subprojects {
 
 project(':service') {
     dependencies {
-        compile project(':domain')
+        compile project(':bookshelf.domain')
     }
 }
 
 project(':application') {
     dependencies {
-        compile project(':domain'), project(':service')
+        compile project(':bookshelf.domain'), project(':bookshelf.service')
     }
 }

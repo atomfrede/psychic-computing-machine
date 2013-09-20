@@ -1,1 +1,1 @@
-include "application", "domain", "service"
+include "bookshelf.application", "bookshelf.domain", "bookshelf.service"
