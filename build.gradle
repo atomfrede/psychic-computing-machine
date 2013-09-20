@@ -1,0 +1,32 @@
+allprojects {
+	apply plugin: 'java'
+	group = 'de.atomfrede.bookshelf'
+	version = '0.0.1-SNAPSHOT'
+}
+subprojects {
+
+    repositories {
+       mavenCentral()
+    }
+   
+
+    dependencies {
+        testCompile 'junit:junit:4.11'
+    }
+
+    jar {
+        manifest.attributes provider: 'gradle'
+    }
+}
+
+project(':service') {
+    dependencies {
+        compile project(':domain')
+    }
+}
+
+project(':application') {
+    dependencies {
+        compile project(':domain'), project(':service')
+    }
+}
