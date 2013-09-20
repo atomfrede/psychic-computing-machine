@@ -12,6 +12,7 @@ subprojects {
    
 
     dependencies {
+    	compile 'org.springframework:spring-core:3.2.4.RELEASE'
         testCompile ('junit:junit:4.11'){
         	exclude module : 'org.hamcrest:hamcrest-core'
         }
