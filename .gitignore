@@ -7,3 +7,7 @@
 
 *.*~
 .settings
+/build
+.classpath
+.project
+.gradle
