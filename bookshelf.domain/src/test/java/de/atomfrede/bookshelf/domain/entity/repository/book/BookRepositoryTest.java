@@ -8,13 +8,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import de.atomfrede.bookshelf.domain.entity.book.Book;
 import de.atomfrede.bookshelf.domain.repository.book.BookRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:test-domain-context.xml")
+@ContextConfiguration("/test-domain-context.xml")
 public class BookRepositoryTest {
 
 	@Autowired

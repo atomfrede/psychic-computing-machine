@@ -18,7 +18,8 @@ http://www.springframework.org/schema/jdbc
                        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
 	
-
+	<context:annotation-config/>
+	<context:component-scan base-package="de.atomfrede.bookshelf.domain"/>
 	<bean id="placeholderConfig"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
@@ -28,10 +29,6 @@ http://www.springframework.org/schema/jdbc
 			<value>SYSTEM_PROPERTIES_MODE_OVERRIDE</value>
 		</property>
 	</bean>
-
-	<tx:annotation-driven/>
-	<context:component-scan base-package="de.atomfrede" />
-	<context:annotation-config />
 	
 	<bean
 		id="dataSource"
@@ -72,16 +69,26 @@ http://www.springframework.org/schema/jdbc
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="de.atomfrede.bookshelf.domain" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
+		 <property name="jpaProperties">
+         <props>
+            <prop key="hibernate.connection.url">${jdbc.url}</prop>
+			<prop key="hibernate.connection.driver_class">${jdbc.driver}</prop>
+			<prop key="hibernate.connection.username">${jdbc.username}</prop>
+			<prop key="hibernate.connection.password">${jdbc.password}</prop>
+            <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+            <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+         </props>
+      </property>
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-
-
 	<jpa:repositories base-package="de.atomfrede.bookshelf.domain.repository" />
+	<tx:annotation-driven/>
 </beans>
