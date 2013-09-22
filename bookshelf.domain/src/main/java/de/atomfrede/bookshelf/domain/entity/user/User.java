@@ -1,5 +1,13 @@
 package de.atomfrede.bookshelf.domain.entity.user;
 
-public class User {
+import de.atomfrede.bookshelf.domain.entity.AbstractEntity;
+
+public class User extends AbstractEntity{
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
