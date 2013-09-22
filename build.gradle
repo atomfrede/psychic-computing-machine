@@ -1,5 +1,6 @@
 allprojects {
 	apply plugin: 'java'
+	apply plugin: 'checkstyle'
 	group = 'de.atomfrede.bookshelf'
 	version = '0.0.1-SNAPSHOT'
 	
