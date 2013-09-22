@@ -11,6 +11,7 @@ allprojects {
     test{
    		outputs.upToDateWhen { false }
 	}
+
 }
 
 subprojects {
