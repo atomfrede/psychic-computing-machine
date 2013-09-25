@@ -11,6 +11,52 @@ allprojects {
     test{
    		outputs.upToDateWhen { false }
 	}
+	
+	
+    repositories {
+       mavenCentral()
+    }
+
+}
+
+configurations {
+	cpdConf
+}
+    
+dependencies {
+    cpdConf 'net.sourceforge.pmd:pmd:5.0.5'
+}
+
+task cpd << {
+   
+    String greeting = 'hello from Ant'
+    ant.echo(message: greeting)
+    ant {
+        taskdef(name:'cpd', classname:'net.sourceforge.pmd.cpd.CPDTask', classpath: configurations.cpdConf.asPath)
+       
+        cpd(minimumTokenCount: '50', format: 'xml',
+            ignoreIdentifiers: 'true',
+            outputFile: 'build/cpd.xml') {
+                fileset(dir: 'bookshelf.domain/src/main/java') {
+                    include(name: '**/*.java')
+                }
+                fileset(dir: 'bookshelf.domain/src/test/java') {
+                    include(name: '**/*.java')
+                }
+                 fileset(dir: 'bookshelf.service/src/main/java') {
+                    include(name: '**/*.java')
+                }
+                fileset(dir: 'bookshelf.service/src/test/java') {
+                    include(name: '**/*.java')
+                }
+                 fileset(dir: 'bookshelf.application/src/main/java') {
+                    include(name: '**/*.java')
+                }
+                fileset(dir: 'bookshelf.application/src/test/java') {
+                    include(name: '**/*.java')
+                }
+            }
+    }
 
 }
 
@@ -27,12 +73,6 @@ subprojects {
     	mysqlConnectorVersion = "5.1.26"
     	hsqlVersion = "2.3.0" 
     }
-
-    
-    repositories {
-       mavenCentral()
-    }
-   
 
     dependencies {
     	compile 'org.springframework:spring-core:${springVersion}'
