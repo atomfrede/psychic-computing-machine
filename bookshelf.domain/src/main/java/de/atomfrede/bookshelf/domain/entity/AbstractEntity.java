@@ -1,6 +1,5 @@
 package de.atomfrede.bookshelf.domain.entity;
 
-
 public abstract class AbstractEntity implements IEntity {
 
 	public boolean isNew() {

@@ -8,5 +8,5 @@ import de.atomfrede.bookshelf.domain.entity.book.Book;
 
 public interface BookRepository extends CrudRepository<Book, Long>{
 
-	List<Book> findByTitle(String tilte);
+	List<Book> findByTitle(String title);
 }

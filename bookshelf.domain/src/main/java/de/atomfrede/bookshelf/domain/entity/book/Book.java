@@ -13,25 +13,15 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
-
 import de.atomfrede.bookshelf.domain.entity.AbstractEntity;
 import de.atomfrede.bookshelf.domain.entity.tag.Tag;
 
 @Entity
 @Table(name = "book")
-public class Book extends AbstractEntity {
+public class Book  extends AbstractEntity{
 
-	@GenericGenerator(name = "BookIdGenerator", strategy = "org.hibernate.id.MultipleHiLoPerTableGenerator", parameters = {
-			@Parameter(name = "table", value = "IdentityGenerator"),
-			@Parameter(name = "primary_key_column", value = "sequence_name"),
-			@Parameter(name = "primary_key_value", value = "Book"),
-			@Parameter(name = "value_column", value = "next_hi_value"),
-			@Parameter(name = "primary_key_length", value = "100"),
-			@Parameter(name = "max_lo", value = "1000") })
-	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "BookIdGenerator")
+	@Id 
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 
 	@Column(name = "title")

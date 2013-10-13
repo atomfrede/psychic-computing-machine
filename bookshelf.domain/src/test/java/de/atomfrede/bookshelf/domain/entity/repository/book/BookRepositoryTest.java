@@ -15,7 +15,7 @@ import de.atomfrede.bookshelf.domain.entity.book.Book;
 import de.atomfrede.bookshelf.domain.repository.book.BookRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/test-domain-context.xml")
+@ContextConfiguration("classpath:/test-domain-context.xml")
 public class BookRepositoryTest {
 
 	@Autowired
