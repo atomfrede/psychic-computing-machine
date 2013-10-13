@@ -12,10 +12,12 @@ import de.atomfrede.bookshelf.domain.entity.AbstractEntity;
 @Table(name = "author")
 public class Author extends AbstractEntity {
 
-	@Id 
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	private static final long serialVersionUID = -6438715475593461119L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Override
 	public Long getId() {
 		return id;

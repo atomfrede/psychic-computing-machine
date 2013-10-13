@@ -12,6 +12,8 @@ import de.atomfrede.bookshelf.domain.entity.AbstractEntity;
 @Table(name = "user")
 public class User extends AbstractEntity {
 
+	private static final long serialVersionUID = 4930031656336804776L;
+	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;

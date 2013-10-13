@@ -18,10 +18,12 @@ import de.atomfrede.bookshelf.domain.entity.tag.Tag;
 
 @Entity
 @Table(name = "book")
-public class Book  extends AbstractEntity{
+public class Book extends AbstractEntity {
 
-	@Id 
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	private static final long serialVersionUID = 6403223439365565371L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@Column(name = "title")

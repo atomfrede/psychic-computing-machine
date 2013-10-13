@@ -19,6 +19,8 @@ import de.atomfrede.bookshelf.domain.entity.book.Book;
 @Table(name = "tag", uniqueConstraints = @UniqueConstraint(columnNames = { "title" }))
 public class Tag extends AbstractEntity {
 
+	private static final long serialVersionUID = 2368204901851980718L;
+
 	@Id 
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
