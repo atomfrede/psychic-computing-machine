@@ -75,9 +75,13 @@ subprojects {
     }
 
     dependencies {
-    	compile 'org.springframework:spring-core:${springVersion}'
-    	compile 'org.springframework:spring-tx:${springVersion}'
-    	compile 'org.springframework:spring-context:${springVersion}'
+    	compile 'org.springframework:spring-core:3.2.4.RELEASE'
+    	compile 'org.springframework:spring-tx:3.2.4.RELEASE'
+    	compile 'org.springframework:spring-context:3.2.4.RELEASE'
+    	compile 'org.springframework:spring-orm:3.2.4.RELEASE'
+    	compile 'org.springframework:spring-jdbc:3.2.4.RELEASE'
+    	
+    	
         testCompile ('junit:junit:4.11'){
         	exclude module : 'org.hamcrest:hamcrest-core'
         }
